@@ -1,0 +1,66 @@
+# Example Environment Configuration for LLM Models
+# Copy this content to a .env file and fill in your actual values
+
+# ======================
+# OLLAMA CONFIGURATION
+# ======================
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_TEMPERATURE=0.0
+
+# ======================
+# GROQ CONFIGURATION  
+# ======================
+GROQ_API_KEY=your_groq_api_key_here
+GROQ_BASE_URL=https://api.groq.com/v1
+GROQ_TEMPERATURE=0.0
+GROQ_MAX_RETRIES=2
+
+# ======================
+# GOOGLE GEMINI CONFIG
+# ======================
+GOOGLE_API_KEY=your_google_api_key_here
+GEMINI_BASE_URL=  # Optional, leave empty for default
+GEMINI_TEMPERATURE=0.0
+
+# ======================
+# OPENROUTER CONFIG
+# ======================
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+OPENROUTER_TEMPERATURE=0.0
+
+# Application details for OpenRouter (optional but recommended)
+APP_URL=https://your-app-domain.com
+APP_TITLE=Your AI Agent Name
+
+# ======================
+# USAGE EXAMPLES
+# ======================
+# 
+# Once you've set these environment variables, you can create models like:
+#
+# Python code:
+# from llm_models.llm_factory import ModelFactory
+#
+# # Create models using environment variables
+# ollama_model = ModelFactory.create_model_from_env("ollama", "llama2")
+# groq_model = ModelFactory.create_model_from_env("groq", "mixtral-8x7b-32768") 
+# gemini_model = ModelFactory.create_model_from_env("gemini", "gemini-pro")
+# openrouter_model = ModelFactory.create_model_from_env("openrouter", "openai/gpt-4")
+#
+# # Or override specific parameters
+# custom_model = ModelFactory.create_model(
+#     "ollama", 
+#     "codellama", 
+#     temperature=0.2,
+#     base_url="http://custom-server:11434"
+# )
+
+# ======================
+# SECURITY NOTES
+# ======================
+# 1. Never commit this file with real API keys to version control
+# 2. Use different API keys for development, staging, and production
+# 3. Consider using secret management services for production deployments
+# 4. Rotate your API keys regularly
+# 5. Monitor API usage to detect unauthorized access 
